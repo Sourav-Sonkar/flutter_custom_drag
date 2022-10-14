@@ -130,30 +130,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 top: position.dy,
                 left: position.dx,
                 child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: GestureDetector(
-                      onPanStart: (details) => _onPanStart(context, details),
-                      onPanUpdate: (details) =>
-                          _onPanUpdate(context, details, position),
-                      onPanEnd: (details) => _onPanEnd(context, details),
-                      onPanCancel: () => _onPanCancel(context),
-                      child: const SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                            child: Icon(
-                          Icons.star,
-                          size: 50,
-                          color: Colors.yellow,
-                        )),
-                      ),
-                    )),
+                  padding: const EdgeInsets.all(10),
+                  child: GestureDetector(
+                    onPanStart: (details) => _onPanStart(context, details),
+                    onPanUpdate: (details) =>
+                        _onPanUpdate(context, details, position),
+                    onPanEnd: (details) => _onPanEnd(context, details),
+                    onPanCancel: () => _onPanCancel(context),
+                    child: const SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: Center(
+                          child: Icon(
+                        Icons.star,
+                        size: 50,
+                        color: Colors.yellow,
+                      )),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
         ),
       ),
-    ) // This trailing comma makes auto-formatting nicer for build methods.
-        ;
+    );
   }
 }
