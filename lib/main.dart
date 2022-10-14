@@ -49,7 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onPanEnd(BuildContext context, DragEndDetails details) {
     print(position);
-    if (position.dy < 180 && position.dy>100 && position.dx>100 && position.dx < 180) {
+    if (position.dy < 180 &&
+        position.dy > 100 &&
+        position.dx > 100 &&
+        position.dx < 180) {
       setState(() {
         position = const Offset(120, 120);
       });
@@ -68,72 +71,73 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter Demo Home Page'),
-        ),
-        body: GestureDetector(
-          onPanStart: (details) => _onPanStart(context, details),
-          onPanUpdate: (details) => _onPanUpdate(context, details, position),
-          onPanEnd: (details) => _onPanEnd(context, details),
-          onPanCancel: () => _onPanCancel(context),
-          child: SafeArea(
-            child: LimitedBox(
-              maxHeight: MediaQuery.of(context).size.height,
-              maxWidth: MediaQuery.of(context).size.width,
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 10,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.red,
-                      ),
-                    ),
+      appBar: AppBar(
+        title: const Text('Flutter Demo Home Page'),
+      ),
+      body: SafeArea(
+        child: LimitedBox(
+          maxHeight: MediaQuery.of(context).size.height,
+          maxWidth: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: [
+              Positioned(
+                top: 10,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.red,
                   ),
-                  Positioned(
-                    top: 120,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.grey,
-                      ),
-                    ),
+                ),
+              ),
+              Positioned(
+                top: 120,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.grey,
                   ),
-                  Positioned(
-                    top: 120,
-                    left: 120,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.green,
-                      ),
-                    ),
+                ),
+              ),
+              Positioned(
+                top: 120,
+                left: 120,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.green,
                   ),
-                  Positioned(
-                    top: 10,
-                    left: 120,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.grey,
-                      ),
-                    ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                left: 120,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.grey,
                   ),
-                  Positioned(
-                    top: position.dy,
-                    left: position.dx,
-                    child: const Padding(
-                      padding: EdgeInsets.all(10),
-                      child: SizedBox(
+                ),
+              ),
+              Positioned(
+                top: position.dy,
+                left: position.dx,
+                child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: GestureDetector(
+                      onPanStart: (details) => _onPanStart(context, details),
+                      onPanUpdate: (details) =>
+                          _onPanUpdate(context, details, position),
+                      onPanEnd: (details) => _onPanEnd(context, details),
+                      onPanCancel: () => _onPanCancel(context),
+                      child: const SizedBox(
                         height: 100,
                         width: 100,
                         child: Center(
@@ -143,13 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.yellow,
                         )),
                       ),
-                    ),
-                  ),
-                ],
+                    )),
               ),
-            ),
+            ],
           ),
-        ) // This trailing comma makes auto-formatting nicer for build methods.
-        );
+        ),
+      ),
+    ) // This trailing comma makes auto-formatting nicer for build methods.
+        ;
   }
 }
